@@ -1,4 +1,4 @@
-# Last updated: 11/11/2026, 7:17:56 pm
+# Last updated: 11/11/2026, 7:19:44 pm
 class Solution:
     def search(self, nums: list[int], target: int) -> bool:
         def binary_search(arr, x):
@@ -16,8 +16,10 @@ class Solution:
                     return True
             return False
 
-        while len(nums) > 1 and nums[0] == nums[-1]:
-            nums = nums[:-1]
+        while len(nums) > 2 and nums[0] == nums[-1]:
+            if nums[0]==target:
+                return True
+            nums = nums[1:-1]
         a=min(nums)
         b=nums.index(a)
         if min(nums)!=nums[0]:
