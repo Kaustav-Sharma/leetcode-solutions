@@ -1,6 +1,6 @@
-# Last updated: 19/11/2026, 9:58:04 am
+# Last updated: 19/11/2026, 10:01:07 am
 class Solution:
     def minimizeSum(self, nums: List[int]) -> int:
-        nums=sorted(nums)
-        return min((nums[-1]-nums[1]),(nums[-2]-nums[0]),(nums[-1]-nums[2]),(nums[-3]-nums[0]),(nums[-2]-nums[1]))
-    
+        small = nsmallest(3, nums)
+        large = nlargest(3, nums)
+        return min(large[0] - small[2], large[1] - small[1], large[2] - small[0])
